@@ -1,6 +1,6 @@
 # Mathematical Foundations of scJDO
 
-**scJDO** (“single-cell Inference of Differential operators”) learns a *time-dependent drift field*
+**scJDO** (“single-cell Jacobian Differential operators”) learns a *time-dependent drift field*
 that governs how cellular states move through latent space.  
 Unlike trajectory methods, scJDO focuses on the **local Jacobian operators** of this drift,
 which encode stability, fragility, and fate-controlling regulatory modes.
@@ -93,14 +93,12 @@ $$
 \qquad \mathcal{J}_t = \bar J(\tau_t; h).
 $$
 
-The bandwidth $h$ is chosen automatically to maximise
+The bandwidth $h$ is chosen automatically to maximize $S(h) \;=\; R(h)\cdot C(h)\cdot L(h)$ in order to bootstrap 
+reproducibility, peak contrast, and peak localisation under
+an effective-sample-size constraint
 
-$$
-S(h) \;=\; R(h)\cdot C(h)\cdot L(h)
-$$
+$$n_\mathrm{eff}(\tau) = (\sum_i w_i)^2 / \sum_i w_i^2 \ge n_\mathrm{min}$$
 
-— bootstrap reproducibility, peak contrast, and peak localisation — under
-an effective-sample-size constraint $n_\mathrm{eff}(\tau) = (\sum_i w_i)^2 / \sum_i w_i^2 \ge n_\mathrm{min}$.
 The grid $\{\tau_t\}$ is a continuous temporal resolution, not a count of
 independent observations, and curves derived from $\mathcal{J}$ are reported
 with bootstrap uncertainty bands. The legacy fixed-window scheme remains
