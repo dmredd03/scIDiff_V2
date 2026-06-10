@@ -27,7 +27,7 @@ scjdo drift paul15.h5ad --groupby paul15_clusters --root 7MEP --out results/
 ```bash
 git clone https://github.com/manarai/scJDO
 cd scJDO
-pip install -e .
+pip install -r requirements.txt
 ```
 
 Requires Python ≥ 3.9, PyTorch ≥ 2.2.
